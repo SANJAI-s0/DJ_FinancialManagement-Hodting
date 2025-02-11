@@ -18,9 +18,10 @@ class OFXFileManager:
     def __init__(self, ofx_file_or_path, parse_on_load: bool = True):
         self.FILE = ofx_file_or_path
         self.ofx_tree: OFXTree = OFXTree()
-        self.ofx_data: OFX or None = None
-        self.statements: List[STMTRS] or None = None
-        self.NUMBER_OF_STATEMENTS: int or None = None
+        from typing import Optional
+        self.ofx_data: Optional[OFX] = None
+        self.statements: Optional[List[STMTRS]] = None
+        self.NUMBER_OF_STATEMENTS: Optional[int] = None
 
         if parse_on_load:
             self.parse_ofx()
